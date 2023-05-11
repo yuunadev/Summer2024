@@ -1,12 +1,12 @@
 ## Introduction
-This is for Guzman Energy 2022 Summer Full-Time/Part-Time Quant Internship recuriting. 
+This is for Guzman Energy 2023 Summer Full-Time/Part-Time Quant Internship recuriting. 
 - **Assignment 1-3 are required**. Assignment 4 is optional. (if you apply Full-Time position instead of Full-Time Intern, Assignment 4 is required.)
 - You can use either R or Python **(Recommended)** for coding.
 - Requirements:
   - create your own github repository for result delivery
   - PDF summary report for each assignment is required.
   - for python, create jupyter notebook file
-- **Due: before May 16th, 2022 5pm ET.** early delivey is welcomed.
+- **Due: before May 22nd, 2023 5pm ET.** early delivey is welcomed.
 - Hints:
   - make your code neat and self explanatory
   - in summary report, provide your insights and conclusions
