@@ -1,6 +1,6 @@
 ## Introduction
 This is for Guzman Energy 2024 Summer Full-Time/Part-Time Quant Internship recuriting. 
-- **Assignment 1-3 are required**. Assignment 4 is optional. (if you apply Full-Time position instead of Full-Time Intern, Assignment 4 is required.)
+- **Assignment 1-3 are required**. Assignment 4 is optional. (if you apply Full-Time position instead of Part-Time Intern, Assignment 4 is required.)
 - You can use either **R** or **Python** (Recommended) for coding.
 - Requirements:
   - create your own github repository for result delivery
