@@ -1,12 +1,12 @@
 ## Introduction
-This is for Guzman Energy 2023 Summer Full-Time/Part-Time Quant Internship recuriting. 
+This is for Guzman Energy 2024 Summer Full-Time/Part-Time Quant Internship recuriting. 
 - **Assignment 1-3 are required**. Assignment 4 is optional. (if you apply Full-Time position instead of Full-Time Intern, Assignment 4 is required.)
-- You can use either R or Python **(Recommended)** for coding.
+- You can use either **R** or **Python** (Recommended) for coding.
 - Requirements:
   - create your own github repository for result delivery
-  - PDF summary report for each assignment is required.
+  - a summary report for each assignment is required.
   - for python, create jupyter notebook file
-- **Due: before May 22nd, 2023 5pm ET.** early delivey is welcomed.
+- **Due: before May 24th(Friday), 2024 5pm ET.** early delivey is welcomed.
 - Hints:
   - make your code neat and self explanatory
   - in summary report, provide your insights and conclusions
@@ -23,27 +23,23 @@ _**Note: don't scrape data from the reference link. It's for reference only. You
 -	peak.type (character): one of onpeak/offpeak/flat/2x16H/7x8
 -	period (character): has 4 types: “2018-2-3” as a daily, “2018Mar” as a monthly, “2018Q2” as a quarterly, “2018A” as an annually.
 ###### Return:  a list variable giving iso/peak.type/start.date/end.date/num.hour where num.hour is the total number of hours of that peak type in that period.
-```R
+```python
 ##### Sample Run #####
-> num.hours.ercot.onpeak.may19 <- get.hours("ERCOT", "onpeak", "2019May")
-> num.hours.ercot.onpeak.may19
-$`iso`
-[1] "ERCOT"
-$peak.type
-[1] "onpeak"
-$start.date
-[1] "2019-05-01"
-$end.date
-[1] "2019-05-31"
-$num.hour
-[1] 352
+> results = get_hours("ERCOT", "onpeak", "2019May")
+> results
+{
+  'iso': 'ERCOT',
+  'peak_type' : 'ONPEAK',
+  'startdate': '2019-05-01',
+  'enddate': '2019-05-31',
+  'num_hours': 352
+}
 ```
 #### Hint:
-1.	In US, there are 7 major ISOs (PJMISO, MISO, ERCOT, SPPISO, NYISO are eastern, WECC and CAISO is western.) see https://www.ferc.gov/power-sales-and-markets/rtos-and-isos
+1.	In US, there are 7 major ISOs (PJMISO, MISO, ERCOT, SPPISO, NYISO, WECC(soon to be integrated into SPP) and CAISO) see https://www.ferc.gov/power-sales-and-markets/rtos-and-isos
 2.	HE, short for Hour Ending. HE2 means 01:00 - 02:00, HE14 means 13:00 - 14:00. For each single day, we have HE1 to HE24.
-3.	peak.type, eastern power market considers a HE to be onpeak, if it's a non-NERC holiday weekday from HE7 to HE22, the rest are offpeak HEs. If the peak.type is flat, that means every hour. (Hint, R package “timeDate” gives NERC holidays). 2x16H is HE7 to HE22 for the weekend and the NERC holiday. 7x8 is non HE7 to HE22 through the week. 
-4.	Western market accepts all the assumptions from Eastern, moreover, it takes Saturday as a weekday.
-5.	MISO does not have the daylight-saving setting, the rest have. (Hint: daylight-savings will impact the function for certain month/peak.type.)
+3.	peak.type, eastern power market considers a HE to be onpeak, if it's a non-NERC holiday weekday from HE7 to HE22, the rest are offpeak HEs. If the peak.type is flat, that means every hour. 2x16H is HE7 to HE22 for the weekend and the NERC holiday. 7x8 is non HE7 to HE22 through the week. Different ISO has different definition of peak type.
+4.	MISO does not have the daylight-saving setting, the rest have. (Hint: daylight-savings will impact the function for certain month/peak.type.)
 
 ## Assignment 2: Meter Data formatting
 #### Objective: merge different data sources into single dataset and evaluate the dataset for anormaly (if any)
@@ -55,11 +51,11 @@ For analysis purpose, we always have different data sources to merge and format.
   Assuming this is one appliance’s electricity consumption minute by minute which is not captured in the previous file. 
   The unit in the file is in watt.
 #### Requirements:
--	**for R, use R dplyr package; for Python, use dfply package**
 - Create script to load both files and merge.
 -	Given the limitation of data period, try to find the overlap period and merge the data into hourly. (ignore the year but making sure the date/hour matched)
 -	After merging the source files correctly, please create one more column in the output file to give total hourly consumption of electricity. (sum all columns)
 -	Create plots of the data and see if there’s any abnormal in the dataset and summarize any pattern observed from the data by hourl/weekday/month
+- Wirte code with clear documentation. 
 #### Hint:
 - try to show smart/efficient way to merge and sum column
 -	try not to hard code by column number or name but making the script re-usable for general data formatting
